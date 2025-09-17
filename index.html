@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Popcorn Truck — Order & Book</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="logo">Popcorn Truck</h1>
+      <nav class="main-nav">
+        <a href="#menu">Menu</a>
+        <a href="#cart-section">Cart</a>
+        <a href="#order-form">Order / Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="hero">
+      <h2>Fresh, Local Popcorn for Events & Pickup</h2>
+      <p>Small-batch flavors. Book the truck for your event!</p>
+    </section>
+
+    <section id="menu">
+      <h2>Menu</h2>
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product" data-name="Classic Salted">
+          <img src="images/classic.jpg" alt="Classic Salted Popcorn">
+          <h3>Classic Salted</h3>
+          <p>Light & crispy.</p>
+          <label>Size
+            <select class="size-select">
+              <option data-size="Small" data-price="3">Small — $3.00</option>
+              <option data-size="Medium" data-price="5">Medium — $5.00</option>
+              <option data-size="Large" data-price="8">Large — $8.00</option>
+            </select>
+          </label>
+          <label>Qty <input type="number" min="1" value="1" class="qty"></label>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product" data-name="Caramel Crunch">
+          <img src="images/caramel.jpg" alt="Caramel Popcorn">
+          <h3>Caramel Crunch</h3>
+          <p>Sweet & crunchy.</p>
+          <label>Size
+            <select class="size-select">
+              <option data-size="Small" data-price="4">Small — $4.00</option>
+              <option data-size="Medium" data-price="6">Medium — $6.00</option>
+              <option data-size="Large" data-price="9">Large — $9.00</option>
+            </select>
+          </label>
+          <label>Qty <input type="number" min="1" value="1" class="qty"></label>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product" data-name="Cheddar Blast">
+          <img src="images/cheddar.jpg" alt="Cheddar Popcorn">
+          <h3>Cheddar Blast</h3>
+          <p>Savory cheesy goodness.</p>
+          <label>Size
+            <select class="size-select">
+              <option data-size="Small" data-price="4">Small — $4.00</option>
+              <option data-size="Medium" data-price="6">Medium — $6.00</option>
+              <option data-size="Large" data-price="9">Large — $9.00</option>
+            </select>
+          </label>
+          <label>Qty <input type="number" min="1" value="1" class="qty"></label>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cart-section">
+      <h2>Your Cart</h2>
+      <div id="cart">
+        <ul id="cart-items"></ul>
+        <div id="cart-total">Total: $0.00</div>
+        <div class="cart-actions">
+          <button id="clear-cart">Clear Cart</button>
+          <a href="#order-form" class="btn" id="checkout-btn">Checkout / Book</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="order-form">
+      <h2>Place Order / Booking Request</h2>
+      <!-- Replace YOUR_FORM_ID with the ID Formspree gives you -->
+      <form id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label>Full name <input type="text" name="name" required></label>
+        <label>Email <input type="email" name="_replyto" required></label>
+        <label>Phone <input type="tel" name="phone"></label>
+
+        <label>Fulfillment
+          <select name="fulfillment">
+            <option>Pickup</option>
+            <option>Delivery</option>
+            <option>Event booking</option>
+          </select>
+        </label>
+
+        <label>Date & time <input type="datetime-local" name="event_datetime"></label>
+
+        <label>Notes <textarea name="notes" rows="3" placeholder="Address, event location, special requests"></textarea></label>
+
+        <!-- JavaScript will fill in the order summary here -->
+        <input type="hidden" name="order_summary" id="order_summary">
+
+        <!-- optional: set email subject -->
+        <input type="hidden" name="_subject" value="New popcorn order">
+
+        <!-- optional: where to redirect after success (replace after deployment) -->
+        <input type="hidden" name="_next" value="https://USERNAME.github.io/REPO/thankyou.html">
+
+        <button type="submit">Send Order / Booking Request</button>
+      </form>
+    </section>
+
+    <footer id="contact">
+      <p>Email: yourname@example.com · Phone: (555) 555-5555</p>
+      <p>Tip: update this with your contact details.</p>
+    </footer>
+  </main>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
